@@ -114,11 +114,22 @@ void genCharge(/* arguments */) {
 
 void genReprendre(){ //Etat initial machine à état
 
-  char etat = 'A';
+  char etatR = 'A';
 
   while(1){
-    switch(etat){
+    switch(etatR){
       case 'A':
-
+        deverouiller_trappe();
+        while(1){
+          if(get_gene_u()== 12){
+              //Changement d'état
+              etatR = 'B';
+              break;
+          }
+        }
+      case 'B':
+        verouiller_trappe();
+        set_voyant_Disponible(VERT);
+        set_voyant_Charge(OFF);
     }
 }

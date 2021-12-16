@@ -3,7 +3,11 @@
 #include <donnees_borne.h>
 #include <memoire_borne.h>
 #include "timer.h"
+#include "voyant.h"
+#include "bouton.h"
+#include "prise.h"
 
 void genCharge();
+void genReprendre();
 
 #endif // GENERATEUR_SAVE_H
