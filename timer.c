@@ -12,12 +12,10 @@ void timer_initialiser(){
 	depart_timer=io->timer_sec;
 }
 
-int timer_valeur(){
-	int timer_val = 0;
-	timer_val = shmid - depart_timer;
-	return timer_val;
-}
-
 void timer_raz(){
-	depart_timer = shmid;
+	io=acces_memoire(&shmid);//lié le simulateur et initialisation du timer
+	depart_timer = io->timer_sec;
+}
+int timer_valeur(){
+	return ((io->timer_sec) - depart_timer);
 }
