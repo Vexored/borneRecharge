@@ -1,7 +1,15 @@
-set_voyant_Charge
+#include "voyant.h"
 
-set_voyant_Trappe
 
-set_voyant_Disponible
+entrees *io;
+int shmid;
 
-set_voyante
+set_voyant_Charge(led etat){
+  io = acces_memoire(&shmid);
+  io->led_charge = etat;
+}
+
+set_voyant_Disponible(led etat){
+  io = acces_memoire(&shmid);
+  io->led_dispo = etat;
+}
