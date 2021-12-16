@@ -9,7 +9,6 @@ int bouton_charge(){
 	int etat_bouton = io->bouton_charge;
 	io->bouton_charge = 0;
 	return etat_bouton;
-
 }
 
 int bouton_stop(){
@@ -17,5 +16,4 @@ int bouton_stop(){
 	int etat_bouton = io->bouton_stop;
 	io->bouton_stop = 0;
 	return etat_bouton;
-
 }
