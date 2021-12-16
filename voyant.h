@@ -1,5 +1,14 @@
 #include <donnees_borne.h>
 #include <memoire_borne.h>
+#include "timer.h"
 
-void set_voyant_Charge();
-void set_voyant_Trappe();
+void set_voyant_Charge(led etat);
+void set_voyant_Trappe(led etat);
+void set_voyant_Defaut(led etat);
+
+led get_voyant_Charge();
+led get_voyant_Disponible();
+led get_voyant_Defaut();
+
+void clignotement_voyant_Charge();
+void clignotement_voyant_Defaut();
