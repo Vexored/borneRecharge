@@ -105,8 +105,18 @@ void genCharge(/* arguments */) {
           set_contacteur_AC(0)
 
           //On quitte la machine à état
-          etat = 'F';
+          etat = 'S';
           break;
       }
   }
+}
+
+void genReprendre(){ //Etat initial machine à état
+
+  char etat = 'A';
+
+  while(1){
+    switch(etat){
+      case 'A':
+    }
 }
