@@ -1,4 +1,5 @@
 #include "Generateur_save.h"
+
 entrees *io;
 int shmid;
 
@@ -22,7 +23,7 @@ void genCharge(/* arguments */) {
   char etat = 'A';
 
 
-  while(1){
+  while(etat != 'S'){
     switch(etat){
       case 'A': //Attente led_prise
 
@@ -118,5 +119,6 @@ void genReprendre(){ //Etat initial machine à état
   while(1){
     switch(etat){
       case 'A':
+
     }
 }

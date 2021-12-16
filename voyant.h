@@ -1,3 +1,5 @@
+#ifndef VOYANT_H
+#define VOYANT_H
 #include <donnees_borne.h>
 #include <memoire_borne.h>
 #include "timer.h"
@@ -12,3 +14,5 @@ led get_voyant_Defaut();
 
 void clignotement_voyant_Charge();
 void clignotement_voyant_Defaut();
+
+#endif // VOYANT_H

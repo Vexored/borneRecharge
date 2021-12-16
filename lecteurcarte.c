@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include "lecteurcarte.h"
 
 void lecteurcarte_initialiser()

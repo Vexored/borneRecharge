@@ -1,5 +1,4 @@
-#include <donnees_borne.h>
-#include <memoire_borne.h>
+#include "prise.h"
 
 entrees *io;
 int shmid;
