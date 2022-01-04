@@ -4,29 +4,30 @@
 entrees *io;
 int shmid;
 
+void initialiser_voyant(){
+  io = access_memoire(&shimd);
+  /* associe la zone de memoire partagee au pointeur */
+  if (io == NULL) printf("Erreur pas de men sh\n");
+}
+
+
 set_voyant_Charge(led etat){
-  io = acces_memoire(&shmid);
   io->led_charge = etat;
 }
 
 set_voyant_Disponible(led etat){
-  io = acces_memoire(&shmid);
   io->led_dispo = etat;
 }
 set_voyant_Defaut(led etat){
-  io = acces_memoire(&shmid);
   io->led_defaut = etat;
 }
 led get_voyant_Charge(){
-  io = acces_memoire(&shmid);
   return io->led_charge;
 }
 led get_voyant_Disponible(){
-  io = acces_memoire(&shmid);
   return io->led_dispo;
 }
 led get_voyant_Defaut(){
-  io = acces_memoire(&shmid);
   return io->led_defaut;
 }
 
