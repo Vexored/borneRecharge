@@ -12,7 +12,6 @@ void timer_initialiser(){
 }
 
 void timer_raz(){
-	io=acces_memoire(&shmid);//lié le simulateur et initialisation du timer
 	depart_timer = io->timer_sec;
 }
 int timer_valeur(){
