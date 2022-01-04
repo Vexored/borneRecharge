@@ -7,6 +7,8 @@
 #include "bouton.h"
 #include "prise.h"
 
+void initialiser_gene_pwn();
+
 void genCharge();
 void genReprendre();
 
