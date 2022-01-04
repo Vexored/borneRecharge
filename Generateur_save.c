@@ -3,16 +3,19 @@
 entrees *io;
 int shmid;
 
+void initialiser_gene_pwn(){
+  io = access_memoire(&shimd);
+  /* associe la zone de memoire partagee au pointeur */
+  if (io == NULL) printf("Erreur pas de men sh\n");
+}
+
 void set_gene_pwn(pwm tension){
-  io = acces_memoire(&shmid);
   io->gene_pwm = tension
 }
 void get_gene_u(){
-  io = acces_memoire(&shmid);
   return io->gene_u;
 }
 void set_contacteur_AC(int etat_contacteur){
-  io = acces_memoire(&shmid);
   io->contacteur_AC = etat_contacteur;
 
 }
