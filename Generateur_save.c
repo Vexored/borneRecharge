@@ -8,7 +8,7 @@ void initialiser_gene_pwn(){
   /* associe la zone de memoire partagee au pointeur */
   if (io == NULL) printf("Erreur pas de men sh\n");
 }
-
+/*
 void set_gene_pwn(pwm tension){
   io->gene_pwm = tension
 }
@@ -19,7 +19,7 @@ void set_contacteur_AC(int etat_contacteur){
   io->contacteur_AC = etat_contacteur;
 
 }
-
+*/
 void genCharge(/* arguments */) {
 
   //Etat initial machine à état
@@ -37,12 +37,12 @@ void genCharge(/* arguments */) {
         set_prise(VERT);
 
         //Generer 12V DC
-        set_gene_pwn(DC);
+        io->gene_pwm = DC;
 
         //Attente du branchement de la prise par le client
         while(1){
           //Attente génération 9V DC par le vehicule
-          if(get_gene_u() == 9){
+          if(io->gene_u == 9){
             //Changment d'état
             etat = 'B';
           break;
@@ -59,11 +59,11 @@ void genCharge(/* arguments */) {
           set_prise(OFF);
 
           //Generation d'un signal 1kHz AC
-          set_gene_pwn(AC_1K);
+          io->gene_pwm = AC_1K;
 
           while(1){
             //Attente génération AC 9V par le vehicule
-            if(get_gene_u() == 9){
+            if(io->gene_u == 9){
               //Changement d'état
               etat = 'C';
               break;
@@ -74,11 +74,11 @@ void genCharge(/* arguments */) {
           case 'C': //Attente_S2_vehicule
 
             //Fermeture contacteur AC
-            set_contacteur_AC(1)
+            io->contacteur_AC = 1;
 
             while(1){
               //Attente de la fermeture de S2 par le vehicule
-              if(get_gene_u() == 6){
+              if(io->gene_u == 6){
                 //Changement d'état
                 etat = 'D';
                 break;
@@ -89,10 +89,10 @@ void genCharge(/* arguments */) {
           case 'D': //Charge du Vehicule
 
             //Generation d'une tension avec rapport cyclique variable
-            set_gene_pwn(AC_CL)
+            io->gene_pwm = AC_CL;
             while(1){
               //Attente ouverture S2 Vehicule
-              if(get_gene_u()== 9){
+              if(io->gene_u == 9 || bouton_stop() == 1){
                   //Changement d'état
                   etat = 'E';
                   break;
@@ -106,7 +106,7 @@ void genCharge(/* arguments */) {
           set_voyant_Charge(VERT);
 
           //Ouverture contacteur AC
-          set_contacteur_AC(0)
+          io->contacteur_AC = 0;
 
           //On quitte la machine à état
           etat = 'S';
@@ -119,20 +119,24 @@ void genReprendre(){ //Etat initial machine à état
 
   char etatR = 'A';
 
-  while(1){
+  while(etatR != 'C'){
     switch(etatR){
       case 'A':
         deverouiller_trappe();
         while(1){
-          if(get_gene_u()== 12){
+          if(io->gene_u== 12){
               //Changement d'état
               etatR = 'B';
               break;
           }
         }
+        break;
+
       case 'B':
         verouiller_trappe();
         set_voyant_Disponible(VERT);
         set_voyant_Charge(OFF);
+        etatR = 'C';
+        break;
     }
 }
