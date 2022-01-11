@@ -4,6 +4,8 @@
 #include <donnees_borne.h>
 #include <memoire_borne.h>
 #include <stdio.h>
+#include <lcarte.h>
+
 //Inclure le fichier qui contient toutes les librairies
 
 //On defini les fiches clients et la base de donnée
