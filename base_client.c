@@ -45,7 +45,7 @@ void ajouter_client(){
   printf("Veuillez insérer les informations du client et la carte :\n");
   attente_insertion_carte();
   numero_carte = lecture_numero_carte();
-  if(recherche_numero(numero_carte) != -1){
+  if(recherche_numero(numero_carte) == -1){
 
   printf("Nom: ");
   scanf("%29s",base_borne.tab_base_donnee[base_borne.nombre_client].nom_client);
@@ -101,7 +101,6 @@ int recherche_numero(int numero_carte){
       return i;
     }
   }
-  printf("Numero deja utilisé\n");
   return -1; // Utilisateur introuvable
 }
 //On réorganise la base de donnée, si on enlève un client,
