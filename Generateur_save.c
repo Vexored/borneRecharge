@@ -102,7 +102,6 @@ void genCharge(/* arguments */) {
             sleep(0.5);
               //Attente ouverture S2 Vehicule
               if(io->gene_u == 9 || bouton_stop() == 1){
-
                   //Changement d'état
                   etat = 'E';
                   break;
@@ -117,7 +116,8 @@ void genCharge(/* arguments */) {
 
           //Ouverture contacteur AC
           io->contacteur_AC = 0;
-
+		  //On génère un signal dc
+		  io->gene_pwm=DC;
           //On quitte la machine à état
           etat = 'S';
           break;
