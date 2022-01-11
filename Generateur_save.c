@@ -1,4 +1,5 @@
 #include "Generateur_save.h"
+#include <unistd.h>
 
 entrees *io;
 int shmid;
@@ -27,6 +28,7 @@ void genCharge(/* arguments */) {
 
 
   while(etat != 'S'){
+  	sleep(0.5);
     switch(etat){
       case 'A': //Attente led_prise
 
@@ -44,7 +46,7 @@ void genCharge(/* arguments */) {
         while(io->gene_u != 9){
 
             //Attente génération 9V DC par le vehicule
-
+			sleep(0.5);
             //Changment d'état
             etat = 'B';
           }
@@ -65,6 +67,7 @@ void genCharge(/* arguments */) {
 
           while(1){
             //Attente génération AC 9V par le vehicule
+            sleep(0.5);
             if(io->gene_u == 9){
 
               //Changement d'état
@@ -81,7 +84,7 @@ void genCharge(/* arguments */) {
 
             while(1){
               //Attente de la fermeture de S2 par le vehicule
-
+				sleep(0.5);
               if(io->gene_u == 6){
 
                 //Changement d'état
@@ -96,6 +99,7 @@ void genCharge(/* arguments */) {
             //Generation d'une tension avec rapport cyclique variable
             io->gene_pwm = AC_CL;
             while(1){
+            sleep(0.5);
               //Attente ouverture S2 Vehicule
               if(io->gene_u == 9 || bouton_stop() == 1){
 
@@ -126,15 +130,15 @@ void genReprendre(){ //Etat initial machine à état
   char etatR = 'A';
 
   while(etatR != 'C'){
+  	sleep(0.5);
     switch(etatR){
       case 'A':
         deverouiller_trappe();
-        while(1){
-          if(io->gene_u== 12){
-              //Changement d'état
+        while(io->gene_u != 12){
+        sleep(0.5);
+
               etatR = 'B';
-              break;
-          }
+
         }
         break;
 

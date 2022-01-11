@@ -55,8 +55,8 @@ void ajouter_client(){
   scanf("%i", &(base_borne.tab_base_donnee[base_borne.nombre_client].age));
   printf("Numéro de carte: %i", numero_carte);
   base_borne.tab_base_donnee[base_borne.nombre_client].numero_carte = numero_carte;
-  printf("Saisie du client terminé !\n");
-printf("Client n°%i ajouter ! Veuillez enlever la carte", base_borne.nombre_client);
+  printf("\nSaisie du client terminé !\n");
+printf("Client n°%i ajouter ! Veuillez enlever la carte\n", base_borne.nombre_client + 1);
 base_borne.nombre_client = base_borne.nombre_client +1;}
 
 	else{
@@ -101,6 +101,7 @@ int recherche_numero(int numero_carte){
       return i;
     }
   }
+
   return -1; // Utilisateur introuvable
 }
 //On réorganise la base de donnée, si on enlève un client,
