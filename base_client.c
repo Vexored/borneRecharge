@@ -77,7 +77,7 @@ void supprimer_client(){
   }
   else{
   base_borne.tab_base_donnee[index].numero_carte = -1;
-  printf("Client %i supprimé.\n", numero_carte);
+  printf("Client n°%i supprimé.\n", index + 1);
   }
   printf("Veuillez retirer la carte\n");
   attente_retrait_carte();
