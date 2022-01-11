@@ -1,0 +1,306 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% University Assignment Title Page
+% LaTeX Template
+% Version 1.0 (27/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% WikiBooks (http://en.wikibooks.org/wiki/LaTeX/Title_Creation)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Instructions for using this template:
+% This title page is capable of being compiled as is. This is not useful for
+% including it in another document. To do this, you have two options:
+%
+% 1) Copy/paste everything between \begin{document} and \end{document}
+% starting at \begin{titlepage} and paste this into another LaTeX file where you
+% want your title page.
+% OR
+% 2) Remove everything outside the \begin{titlepage} and \end{titlepage} and
+% move this file to the same directory as the LaTeX file you wish to add it to.
+% Then add \input{./title_page_1.tex} to your LaTeX file where you want your
+% title page.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\title{Title page with logo}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper]{report}
+
+%====================== PACKAGES ======================
+\usepackage{bbold}
+\usepackage{soul}               %Pour souligner
+\usepackage{dsfont}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}		% Si encodage du document en utf8
+\usepackage[T1]{fontenc}
+% Pour avoir le document en français
+
+%\usepackage[utf8x]{inputenc}	% Encodage du document
+\usepackage{float}
+\usepackage{subcaption}				% Pour gérer les positionnement d'images
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}			% Pour les lettres calligraphiques équation
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{url}				% Pour faire des hyperliens vers le web
+\usepackage{xcolor}
+% pour les informations sur un document compilé en PDF et les liens externes / internes
+\usepackage{hyperref}			% Pour faire des hyperliens
+\usepackage{array}				% Pour faire des tableaux
+\usepackage{tabularx}
+% pour utiliser 		% floatbarrier
+%\usepackage{placeins}
+%\usepackage{floatrow}
+\usepackage{setspace}			% Espacement entre les lignes
+\usepackage{abstract}			% Modifier la mise en page de l'abstract
+\usepackage[T1]{fontenc}		% Police et mise en page (marges) du document
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{pdfpages}			% pour inclures des pdf comme des images
+%\usepackage{subfig}				% Pour les galerie d'images
+\usepackage{listings}			% pour inclure du code dans le doc
+\usepackage{soul}				% Pour surligner
+\usepackage{enumitem}
+
+\usepackage{tcolorbox}
+
+\sethlcolor{grisclair}
+\definecolor{darkgreen}{RGB}{0,100,0}
+\definecolor{MonBleu}{RGB}{84, 114,174}
+\definecolor{MonPrune}{RGB}{150,25,49}
+\definecolor{MonMarron}{RGB}{165, 38, 10}
+ \usepackage{tikz}
+ \usepackage{schemabloc}
+ \usepackage{afterpage}
+\usepackage{float}
+
+\usepackage{listings}
+% ----------------------------------------------------------------
+
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\lstdefinestyle{myStyle}{language=matlab,
+    backgroundcolor=\color{backgroundColour},
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+    {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {\ \ }{{\ }}1}
+
+\lstdefinestyle{matlab}{language=matlab,
+    backgroundcolor=\color{backgroundColour},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+    {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {\ \ }{{\ }}1}
+%----------------------------------------------------
+
+
+% Environnement théorème
+\usepackage[framemethod=TikZ]{mdframed}
+\newcounter{theo}[section]\setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}} % Modif 17/02/2019
+%\newenvironment{name}[args]{begin_def}{end_def}
+
+\newenvironment{theo}[2][]{%
+    \refstepcounter{theo}
+        \ifstrempty{#1}%
+        % if condition (without title)
+        {\mdfsetup{%
+            frametitle={%
+                \tikz[baseline=(current bounding box.east),outer sep=0pt]
+                \node[anchor=east,rectangle,fill=red!20]
+                {\strut};}
+            }%
+        % else condition (with title)
+        }{\mdfsetup{%
+            frametitle={%
+                \tikz[baseline=(current bounding box.east),outer sep=0pt]
+                \node[anchor=east,rectangle,fill=red!20]
+                {\strut ~#1};}%
+            }%
+        }%
+        % Both conditions
+        \mdfsetup{%
+            innertopmargin=10pt,linecolor=red!20,%
+            linewidth=2pt,topline=true,%
+            frametitleaboveskip=\dimexpr-\ht\strutbox\relax%
+        }
+\begin{mdframed}[]\relax}{%
+\end{mdframed}}
+
+
+
+%\pgfversion
+
+%====================== INFORMATION ET REGLES ======================
+
+%rajouter les numérotation pour les \paragraphe et \subparagraphe
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\newcounter{cpt1}						% Compteur pour les n° de ligne dans les prog de l'annexe1
+\newcommand\increm{\arabic{cpt1}\addtocounter{cpt1}{1}}
+%initialisation de l'intégrateur de language C
+
+\usepackage[explicit]{titlesec}
+
+%%%%% Ce que j'ai ajouté
+% Bjornstrup - Rejne - Conny - Glenn - Sonny - Lenny - Bjarne
+\usepackage[Conny]{fncychap}
+
+\AddThinSpaceBeforeFootnotes
+\FrenchFootnotes
+
+\begin{document}
+% \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%page de garde
+\input{./page_de_garde/page_de_garde.tex}
+%page blanche
+\newpage
+
+~
+\thispagestyle{empty}
+\setcounter{page}{0}
+
+%ne pas numéroter le sommaire
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\setcounter{page}{1}
+%espacement entre les lignes d'un tableau
+\renewcommand{\arraystretch}{1.5}
+
+%====================== INCLUSION DES PARTIES ======================
+%
+%~
+\thispagestyle{empty}
+%recommencer la numérotation des pages à "1"
+\setcounter{page}{0}
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {
+  | >{\raggedright\arraybackslash}X
+  | >{\raggedright\arraybackslash}X
+  | >{\raggedright\arraybackslash}X | }
+  \hline
+  Acteur & Système\\
+  \hline
+  1: Le client présente son badge & 2: Le système identifie le client \\
+   & 3: Le système fait clignoter le voyant charge en vert pendant 8s \\
+  4: Le client à une minute pour appuyer sur le bouton charge & 5: Le système éteint le voyant disponible \\
+  6: Le client retire sa carte & 7: "Lancement UC Charger Batterie" Le système déclenche la charge du vehicule \\
+   & 8: Le système met le voyant dispo à Vert.\\
+  \hline
+\end{tabularx}
+    \caption{Scénario UC Recharger Batterie}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {
+  | >{\raggedright\arraybackslash}X
+  | >{\raggedright\arraybackslash}X
+  | >{\raggedright\arraybackslash}X | }
+  \hline
+  Acteur & Système\\
+  \hline
+  1: Le client présente son badge & 2: Le système identifie le client \\
+   & 3: Le système déverrouille la trappe \\
+  4: Le client débranche la prise & 5: Le système éteint le voyant prise \\
+   & 6: Le système met le voyant dispo à Vert
+  \hline
+\end{tabularx}
+    \caption{Scénario UC Reprendre Vehicule}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {
+  | >{\raggedright\arraybackslash}X
+  | >{\raggedright\arraybackslash}X
+  | >{\raggedright\arraybackslash}X | }
+  \hline
+  Acteur & Système\\
+  \hline
+  1: Le client présente son badge & 2: Le système ne peut authentifier le client \\
+   & 3: Le système fait clignoter la led défaut pendant 8s \\
+  4: Le client retire sa carte &\\
+  \hline
+\end{tabularx}
+    \caption{Scénario UC Reprendre Vehicule Variante}
+    \label{tab:my_label}
+\end{table}
+
+
+
+
+
+\end{document}

@@ -6,29 +6,31 @@
 #include <stdio.h>
 //Inclure le fichier qui contient toutes les librairies
 
-//On défini les fiches clients et la base de donnée
-#DEFINE TAILLE_BASE 100
-#DEFINE TAILLE_NOM 30
-#DEFINE TAILLE_PRENOM 30
+//On defini les fiches clients et la base de donnée
+#define TAILLE_BASE 100
+#define TAILLE_NOM 30
+#define TAILLE_PRENOM 30
 
 typedef struct{
-  char[TAILLE_NOM] nom_client;
-  char[TAILLE_PRENOM] prenom_client;
-  unsigned int age;
-  unsigned int numero_carte;
+  char nom_client[TAILLE_NOM];
+  char prenom_client[TAILLE_PRENOM];
+  int age;
+  int numero_carte;
 } fiche_client;
 
 typedef struct{
-  unsigned int nombre_client;
-  fiche_client[TAILLE_BASE] tab_base_donnee;
+  int nombre_client;
+  fiche_client tab_base_donnee[TAILLE_BASE];
 } base_donnee;
 
 //Méthodes de BASE_CLIENT
 
-//Méthode élementaire'
+//Méthode élementaire
 void creation_base();
 int authentifier(int numero_client); //Authentifie les clients
-int ajouter_client(); //Lance la séquence d'ajout d'un clients
-int supprimer_client(); //Lance la séquence de suppressions d'un clients
+void ajouter_client(); //Lance la séquence d'ajout d'un clients
+void supprimer_client(); //Lance la séquence de suppressions d'un clients
+int recherche_client(); //Permet de rechercher un client
+int recherche_numero(); //Permet de rechercher la disponiblité d'un numéro de carte
 
 #endif

@@ -3,8 +3,8 @@
 entrees *io;
 int shmid;
 
-void bouton_initialiser(){
-	io = access_memoire(&shimd);
+void initialiser_bouton(){
+	io = acces_memoire(&shmid);
 	/* associe la zone de memoire partagee au pointeur */
 	if (io == NULL) printf("Erreur pas de men sh\n");
 }

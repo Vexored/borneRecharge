@@ -4,16 +4,16 @@ entrees *io;
 int shmid;
 
 void initialiser_prise(){
-  io = access_memoire(&shimd);
+  io = acces_memoire(&shmid);
   /* associe la zone de memoire partagee au pointeur */
   if (io == NULL) printf("Erreur pas de men sh\n");
 }
 
 void verouiller_trappe(){
-  set_prise(VERT);
+  io->led_trappe=OFF;
 }
 void deverouiller_trappe(){
-  set_prise(OFF);
+  io->led_trappe=VERT;
 }
 void set_prise(led etat){
   io->led_prise = etat;

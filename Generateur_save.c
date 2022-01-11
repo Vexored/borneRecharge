@@ -4,7 +4,7 @@ entrees *io;
 int shmid;
 
 void initialiser_gene_pwn(){
-  io = access_memoire(&shimd);
+  io = acces_memoire(&shmid);
   /* associe la zone de memoire partagee au pointeur */
   if (io == NULL) printf("Erreur pas de men sh\n");
 }
@@ -34,29 +34,31 @@ void genCharge(/* arguments */) {
         set_voyant_Charge(ROUGE);
 
         //Deverouillage de la Prise
-        set_prise(VERT);
+        deverouiller_trappe();
+
 
         //Generer 12V DC
         io->gene_pwm = DC;
 
         //Attente du branchement de la prise par le client
-        while(1){
-          //Attente génération 9V DC par le vehicule
-          if(io->gene_u == 9){
+        while(io->gene_u != 9){
+
+            //Attente génération 9V DC par le vehicule
+
             //Changment d'état
             etat = 'B';
-          break;
           }
-        }
+
         break;
 
         case 'B': //Prise branchee
 
           //Initialisation des voyants
-          set_voyant_Trappe(ROUGE);
+          set_prise(VERT);
 
           //Verouillage de la Prise
-          set_prise(OFF);
+           verouiller_trappe();
+
 
           //Generation d'un signal 1kHz AC
           io->gene_pwm = AC_1K;
@@ -64,6 +66,7 @@ void genCharge(/* arguments */) {
           while(1){
             //Attente génération AC 9V par le vehicule
             if(io->gene_u == 9){
+
               //Changement d'état
               etat = 'C';
               break;
@@ -78,7 +81,9 @@ void genCharge(/* arguments */) {
 
             while(1){
               //Attente de la fermeture de S2 par le vehicule
+
               if(io->gene_u == 6){
+
                 //Changement d'état
                 etat = 'D';
                 break;
@@ -93,6 +98,7 @@ void genCharge(/* arguments */) {
             while(1){
               //Attente ouverture S2 Vehicule
               if(io->gene_u == 9 || bouton_stop() == 1){
+
                   //Changement d'état
                   etat = 'E';
                   break;
@@ -134,9 +140,11 @@ void genReprendre(){ //Etat initial machine à état
 
       case 'B':
         verouiller_trappe();
+        set_prise(OFF);
         set_voyant_Disponible(VERT);
         set_voyant_Charge(OFF);
         etatR = 'C';
         break;
     }
+}
 }

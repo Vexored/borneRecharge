@@ -2,6 +2,7 @@
 
 entrees *io;
 int shmid;
+
 int depart_timer;
 
 void timer_initialiser(){

@@ -9,6 +9,7 @@ void initialiser_voyant();
 void set_voyant_Charge(led etat);
 void set_voyant_Trappe(led etat);
 void set_voyant_Defaut(led etat);
+void set_voyant_Disponible(led etat);
 
 led get_voyant_Charge();
 led get_voyant_Disponible();
